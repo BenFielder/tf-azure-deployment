@@ -35,4 +35,5 @@ jobs:
               run: | 
                 gh pr create --base main --head gh-actions-controller-update --title "chore: GH Actions Controller Update" --body "Updating workflows"
               env:
+                GH_DEBUG: 1
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
