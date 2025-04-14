@@ -17,11 +17,6 @@ jobs:
               run: |
                     git init
                     git checkout -b gh-actions-controller-update
-                    git add .
-                    git commit -m "chore: GH Actions Controller Update"
-                    git push origin gh-actions-controller-update
-              env:
-                GITHUB_TOKEN: ${{ secrets.GH_AC_TOKEN }}
     
             # Comment or uncomment these depending on what workflows you want to use  
             - name: Pull changes on self
