@@ -12,24 +12,37 @@ jobs:
     Update-deployment-workflow:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repo code
-              uses: actions/checkout@v4
-              with:
-                repository: BenFielder/github-actions-controller
-            
-            # - name: Pull Linting Workflows
-            
-            # - name: Pull Building workflows
-
-            # - name: Pull Testing workflows
-
-            # - name: Pull Deployment workflows
 
             - name: Create branch
               run: | 
                 git branch gh-actions-controller-update
                 git switch gh-actions-controller-update
+            
+            # Comment or uncomment these depending on what workflows you want to use  
+            - name: Pull changes on self
+              uses: actions/checkout@v4
+              with:
+                sparse-checkout: BenFielder/github-actions-controller/templates/master-gh-actions-controller.yml
+            
+            - name: Pull Linting Workflows
+              uses: actions/checkout@v4
+              with:
+                repository: BenFielder/github-actions-controller/templates/linting
 
+            - name: Pull Building Workflows
+              uses: actions/checkout@v4
+              with:
+                  repository: BenFielder/github-actions-controller/templates/building
+
+            - name: Pull Testing Workflows
+              uses: actions/checkout@v4
+              with:
+                  repository: BenFielder/github-actions-controller/templates/testing
+
+            - name: Pull Deployment Workflows
+              uses: actions/checkout@v4
+              with:
+                  repository: BenFielder/github-actions-controller/templates/deploying
 
             - name: Create Pull Request
               run: | 
