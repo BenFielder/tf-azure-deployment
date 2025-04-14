@@ -28,22 +28,22 @@ jobs:
             - name: Pull Linting Workflows
               uses: actions/checkout@v4
               with:
-                repository: BenFielder/github-actions-controller/templates/linting
+                sparse-checkout: BenFielder/github-actions-controller/templates/linting
 
             - name: Pull Building Workflows
               uses: actions/checkout@v4
               with:
-                  repository: BenFielder/github-actions-controller/templates/building
+                  sparse-checkout: BenFielder/github-actions-controller/templates/building
 
             - name: Pull Testing Workflows
               uses: actions/checkout@v4
               with:
-                  repository: BenFielder/github-actions-controller/templates/testing
+                  sparse-checkout: BenFielder/github-actions-controller/templates/testing
 
             - name: Pull Deployment Workflows
               uses: actions/checkout@v4
               with:
-                  repository: BenFielder/github-actions-controller/templates/deploying
+                  sparse-checkout: BenFielder/github-actions-controller/templates/deploying
 
             - name: Create Pull Request
               run: | 
