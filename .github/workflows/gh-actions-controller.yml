@@ -2,6 +2,11 @@
 name: Github Actions Controller
 on: workflow_dispatch
 
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
     Update-deployment-workflow:
         runs-on: ubuntu-latest
