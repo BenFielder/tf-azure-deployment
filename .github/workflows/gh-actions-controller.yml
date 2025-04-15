@@ -44,6 +44,11 @@ jobs:
               with:
                   sparse-checkout: BenFielder/github-actions-controller/templates/deploying
 
+            - name: Configure user
+              run: |
+                git config --global user.name "Github Actions Bot"
+                git config --global user.email "actions@github.com"     
+                  
             - name: Commit changes
               run: |
                 git add .
