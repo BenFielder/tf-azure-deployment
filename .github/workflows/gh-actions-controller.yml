@@ -22,27 +22,32 @@ jobs:
             - name: Pull changes on self
               uses: actions/checkout@v4
               with:
-                sparse-checkout: BenFielder/github-actions-controller/templates/master-gh-actions-controller.yml
+                repository: "BenFielder/github-actions-controller"
+                path: /templates/master-gh-actions-controller.yml
             
             - name: Pull Linting Workflows
               uses: actions/checkout@v4
               with:
-                sparse-checkout: BenFielder/github-actions-controller/templates/linting
+                repository: "BenFielder/github-actions-controller"
+                path: /templates/linting
 
             - name: Pull Building Workflows
               uses: actions/checkout@v4
               with:
-                  sparse-checkout: BenFielder/github-actions-controller/templates/building
+                repository: "BenFielder/github-actions-controller"
+                path: /templates/building
 
             - name: Pull Testing Workflows
               uses: actions/checkout@v4
               with:
-                  sparse-checkout: BenFielder/github-actions-controller/templates/testing
+                  repository: "BenFielder/github-actions-controller"
+                  path: /templates/testing
 
             - name: Pull Deployment Workflows
               uses: actions/checkout@v4
               with:
-                  sparse-checkout: BenFielder/github-actions-controller/templates/deploying
+                  repository: "BenFielder/github-actions-controller"
+                  path: /templates/deploying
 
             - name: Configure user
               run: |
