@@ -24,7 +24,11 @@ jobs:
               with:
                 repository: "BenFielder/github-actions-controller"
                 path: templates
-            
+
+            - name: List files
+              run: |
+                ls -R templates
+                
             - name: Get all template workflows
               run: |
                 mkdir -p .github/workflows
