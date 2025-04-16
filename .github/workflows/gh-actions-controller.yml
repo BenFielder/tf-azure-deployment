@@ -19,35 +19,43 @@ jobs:
                     git checkout -b gh-actions-controller-update
     
             # Comment or uncomment these depending on what workflows you want to use  
-            - name: Pull changes on self
+            - name: Pull Github Actions Controller Repo
               uses: actions/checkout@v4
               with:
                 repository: "BenFielder/github-actions-controller"
-                path: /templates/master-gh-actions-controller.yml
+                path: templates
             
-            - name: Pull Linting Workflows
-              uses: actions/checkout@v4
-              with:
-                repository: "BenFielder/github-actions-controller"
-                path: /templates/linting
+            - name: Get all template workflows
+              run: |
+                mkdir -p .github/workflows
+                cp -r templates/templates/Linting/workflows/* .github/workflows/
+                cp -r templates/templates/Building/workflows/* .github/workflows/
+                cp -r templates/templates/Deploying/workflows/* .github/workflows/
+                cp -r templates/templates/Testing/workflows/* .github/workflows/
 
-            - name: Pull Building Workflows
-              uses: actions/checkout@v4
-              with:
-                repository: "BenFielder/github-actions-controller"
-                path: /templates/building
+            # - name: Pull Linting Workflows
+            #   uses: actions/checkout@v4
+            #   with:
+            #     repository: "BenFielder/github-actions-controller"
+            #     path: /templates/linting
 
-            - name: Pull Testing Workflows
-              uses: actions/checkout@v4
-              with:
-                  repository: "BenFielder/github-actions-controller"
-                  path: /templates/testing
+            # - name: Pull Building Workflows
+            #   uses: actions/checkout@v4
+            #   with:
+            #     repository: "BenFielder/github-actions-controller"
+            #     path: /templates/building
 
-            - name: Pull Deployment Workflows
-              uses: actions/checkout@v4
-              with:
-                  repository: "BenFielder/github-actions-controller"
-                  path: /templates/deploying
+            # - name: Pull Testing Workflows
+            #   uses: actions/checkout@v4
+            #   with:
+            #       repository: "BenFielder/github-actions-controller"
+            #       path: /templates/testing
+
+            # - name: Pull Deployment Workflows
+            #   uses: actions/checkout@v4
+            #   with:
+            #       repository: "BenFielder/github-actions-controller"
+            #       path: /templates/deploying
 
             - name: Configure user
               run: |
