@@ -28,38 +28,27 @@ jobs:
             - name: List files
               run: |
                 ls -R templates
-                
-            - name: Get all template workflows
+
+            - name: Pull Linting workflows
               run: |
                 mkdir -p .github/workflows
-                cp -r templates/templates/Linting/workflows/* .github/workflows/
-                cp -r templates/templates/Building/workflows/* .github/workflows/
-                cp -r templates/templates/Deploying/workflows/* .github/workflows/
-                cp -r templates/templates/Testing/workflows/* .github/workflows/
+                cp templates/templates/linting/*.yml .github/workflows/ || echo "No linting workflows found"
+              
 
-            # - name: Pull Linting Workflows
-            #   uses: actions/checkout@v4
-            #   with:
-            #     repository: "BenFielder/github-actions-controller"
-            #     path: /templates/linting
+            - name: Pull Building workflows
+              run: |
+                mkdir -p .github/workflows
+                cp templates/templates/building/*.yml .github/workflows/ || echo "No building workflows found"
 
-            # - name: Pull Building Workflows
-            #   uses: actions/checkout@v4
-            #   with:
-            #     repository: "BenFielder/github-actions-controller"
-            #     path: /templates/building
+            - name: Pull Testing Workflows
+              run: |
+                mkdir -p .github/workflows
+                cp templates/templates/testing/*.yml .github/workflows/ || echo "No testing workflows found"
 
-            # - name: Pull Testing Workflows
-            #   uses: actions/checkout@v4
-            #   with:
-            #       repository: "BenFielder/github-actions-controller"
-            #       path: /templates/testing
-
-            # - name: Pull Deployment Workflows
-            #   uses: actions/checkout@v4
-            #   with:
-            #       repository: "BenFielder/github-actions-controller"
-            #       path: /templates/deploying
+            - name: Pull Deployment Workflows
+              run: |
+                mkdir -p .github/workflows
+                cp templates/templates/deploying/*.yml .github/workflows/ || echo "No deployment workflows found"
 
             - name: Configure user
               run: |
