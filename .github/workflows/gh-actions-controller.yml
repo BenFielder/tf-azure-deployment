@@ -63,7 +63,7 @@ jobs:
                 git commit -m "chore: Update workflows"
 
            - name: Push branch
-             run: git push origin gh-actions-controller-update
+             run: git push -f origin gh-actions-controller-update
               
            - name: Create Pull Request
              run: | 
