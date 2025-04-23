@@ -12,6 +12,7 @@ permissions:
 jobs:
     Update-deployment-workflow:
         runs-on: ubuntu-latest
+        secrets: inherit
         steps:
            - name: Pull workflows
              uses: BenFielder/github-actions-controller@v1.12.0
