@@ -14,7 +14,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
            - name: Pull workflows
-             uses: BenFielder/github-actions-controller@v1.11.0
+             uses: BenFielder/github-actions-controller@v1.12.0
              with:
                 testing_workflows: true
                 linting_workflows: true
