@@ -1,0 +1,20 @@
+name: Print Date and Say Hello
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  print-date-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print date and time
+        run: |
+          echo "The current date and time is: $(date)"
+
+      - name: Say hello
+        run: |
+          echo "Hello, ${{ github.actor }}!"
